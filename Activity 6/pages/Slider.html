@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling Slider</title>
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .slider-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+    .slider-image {
+      max-width: 80%;
+      height: auto;
+    }
+    .slider-text {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #fff; /* Darker text for better readability */
+    }
+    .slider-container {
+      background-color: #333333; /* Lighter background */
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4a4e69;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .next-btn:hover {
+      background-color: #9a8c98;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Slider</h1>
+
+      <div id="slider" class="slider-container">
+        <div class="slider-content">
+          <div class="slider-item">
+            <img src="solo-leveling-image1.jpg" alt="Solo Leveling: Chapter 1" class="slider-image">
+            <p class="slider-text">Chapter 1: A world where hunters battle monsters. Sung Jinwoo is the weakest hunter of them all.</p>
+            <button class="next-btn">Next</button>
+          </div>
+          <div class="slider-item">
+            <img src="solo-leveling-image2.jpg" alt="Solo Leveling: Power-up" class="slider-image">
+            <p class="slider-text">After a near-death experience, Jinwoo becomes a "player" with the ability to level up like a game character.</p>
+            <button class="next-btn">Next</button>
+          </div>
+          <div class="slider-item">
+            <img src="solo-leveling-image3.jpg" alt="Solo Leveling: Fight Scene" class="slider-image">
+            <p class="slider-text">Jinwoo begins his journey as a powerful solo hunter, facing dungeons filled with dangerous creatures.</p>
+            <button class="next-btn">Next</button>
+          </div>
+          <div class="slider-item">
+            <img src="solo-leveling-image4.jpg" alt="Solo Leveling: New Skills" class="slider-image">
+            <p class="slider-text">Jinwoo unlocks new abilities and weapons, becoming stronger with each battle.</p>
+            <button class="next-btn">Next</button>
+          </div>
+          <div class="slider-item">
+            <img src="solo-leveling-image5.jpg" alt="Solo Leveling: Raid Battle" class="slider-image">
+            <p class="slider-text">He takes on powerful raid bosses, showing incredible growth and strength.</p>
+            <button class="next-btn">Next</button>
+          </div>
+          <div class="slider-item">
+            <img src="solo-leveling-image6.jpg" alt="Solo Leveling: Enemy Forces" class="slider-image">
+            <p class="slider-text">Jinwoo faces off against the most powerful enemies, protecting the world from monstrous threats.</p>
+            <button class="next-btn">Next</button>
+          </div>
+          <div class="slider-item">
+            <img src="solo-leveling-image7.jpg" alt="Solo Leveling: Final Fight" class="slider-image">
+            <p class="slider-text">The final battle approaches, and Jinwoo's journey reaches its epic conclusion.</p>
+            <button class="next-btn">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      var currentIndex = 0;
+      var totalSlides = $(".slider-item").length;
+
+      // Initial display of the first slide
+      $(".slider-item").hide();
+      $(".slider-item").eq(currentIndex).show();
+
+      // Navigation functionality
+      $(".next-btn").click(function() {
+        currentIndex++;
+        if (currentIndex >= totalSlides) {
+          currentIndex = 0; // Reset to the first slide if we go beyond
+        }
+        $(".slider-item").hide();
+        $(".slider-item").eq(currentIndex).show();
+      });
+    });
+  </script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

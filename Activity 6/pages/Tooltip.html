@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip Widget - Solo Leveling</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+    h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Custom Tooltip Styling */
+    .custom-tooltip {
+      background-color: #333;
+      color: #fff;
+      padding: 8px;
+      border-radius: 5px;
+      font-size: 14px;
+      max-width: 250px; /* Max width for the tooltip */
+      word-wrap: break-word;
+    }
+    /* Add some margin and padding to the content */
+    .content p {
+      margin-bottom: 20px;
+    }
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none; /* Hide sidebar on small screens */
+      }
+      .content {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Custom Cursor */
+    .tooltip-target:hover {
+      cursor: pointer;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Tooltip</h1>
+
+      <!-- Interactive Tooltip for Solo Leveling -->
+      <p id="soloLeveling" class="tooltip-target">Hover over this text to learn about <strong>Solo Leveling</strong>!</p>
+      <p id="mainCharacter" class="tooltip-target">Hover over to know more about <strong>Jinwoo Sung</strong>, the protagonist of Solo Leveling!</p>
+      <p id="plot" class="tooltip-target">Hover here to explore the plot of <strong>Solo Leveling</strong>!</p>
+      <p id="supportingCharacters" class="tooltip-target">Hover to learn about the <strong>Supporting Characters</strong> in the series!</p>
+      <p id="monsters" class="tooltip-target">Hover to discover the various <strong>Monsters</strong> featured in Solo Leveling!</p>
+      <p id="gates" class="tooltip-target">Hover to find out more about the <strong>Gates</strong> and dungeons!</p>
+      <p id="rankings" class="tooltip-target">Hover to understand the <strong>Ranking System</strong> in the world of Solo Leveling!</p>
+    </div>
+  </div>
+
+  <!-- Tooltip Styling -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      // Enable tooltips on elements with a specific class or title attribute
+      $(document).tooltip({
+        items: ".tooltip-target",
+        content: function() {
+          var elementId = $(this).attr("id");
+          if (elementId === "soloLeveling") {
+            return "Solo Leveling is a web novel and manhwa series that follows the journey of a hunter gaining incredible powers.";
+          } else if (elementId === "mainCharacter") {
+            return "Jinwoo Sung starts as the weakest hunter but grows immensely in power after a near-death experience in a dungeon.";
+          } else if (elementId === "plot") {
+            return "The story revolves around Jinwoo's rise from a low-ranked hunter to one of the most powerful beings in his world.";
+          } else if (elementId === "supportingCharacters") {
+            return "Supporting characters like Cha Haein, Yoo Jin-Ho, and others play vital roles in helping Jinwoo on his journey.";
+          } else if (elementId === "monsters") {
+            return "Monsters vary from low-level creatures to world-ending beasts, each having unique abilities and strengths.";
+          } else if (elementId === "gates") {
+            return "Gates are portals to dungeons where hunters face dangerous monsters, and each gate has varying levels of danger.";
+          } else if (elementId === "rankings") {
+            return "The ranking system in Solo Leveling determines the strength of hunters, and higher-ranked hunters are feared and revered.";
+          }
+        },
+        tooltipClass: "custom-tooltip" // Custom class for tooltip
+      });
+    });
+  </script>
+  
+  <footer class="footer">
+    College of Information and Computing Sciences © 2022
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling Progress Bar</title>
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #progress-container {
+      margin-top: 20px;
+    }
+    #level-display {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    #milestone, #ability-unlock {
+      color: #f39c12;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+    }
+    .ability {
+      background-color: #3498db;
+      color: white;
+      padding: 5px;
+      margin: 5px 0;
+      display: inline-block;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    /* Add a pulsing animation to the progress bar */
+    #progressbar {
+      height: 30px;
+      width: 100%;
+      background-color: #ecf0f1;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+    }
+    .ui-progressbar-value {
+      height: 100%;
+      background-color: #3498db;
+      width: 0;
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: pulse 0.5s ease-out forwards;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scaleX(0);
+      }
+      50% {
+        transform: scaleX(1.1);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Progress Bar</h1>
+      
+      <div id="progress-container">
+        <div id="progressbar"><div class="ui-progressbar-value"></div></div>
+        <div id="level-display">Current Level: <span id="level">1</span> (XP: <span id="xp">0</span>/100)</div>
+        <div id="milestone"></div>
+        <div id="ability-unlock"></div>
+      </div>
+
+      <button id="level-up-btn">Gain XP</button> </a>
+      <button id="reset-btn">Reset Progress</button> </a>
+
+      <h3>Unlocked Abilities</h3>
+      <div id="abilities"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      let currentLevel = 1;
+      const maxLevel = 100;
+      let currentXP = 0;
+      const xpPerLevel = 100;
+      const abilities = {
+        10: "Shadow Strike",
+        25: "Phantom Dodge",
+        50: "Assassin's Blade",
+        75: "Dragon Slayer",
+        100: "Godlike Power"
+      };
+
+      // Initialize the progress bar
+      $("#progressbar .ui-progressbar-value").width(0);
+
+      function updateProgress() {
+        const progressValue = (currentXP / xpPerLevel) * 100;
+
+        // Animate the progress bar with a pulsing effect
+        $(".ui-progressbar-value")
+          .stop(true, true)
+          .width(0)
+          .animate(
+            { width: progressValue + '%' },
+            500 // Duration of the animation in milliseconds
+          );
+        
+        $("#level").text(currentLevel);
+        $("#xp").text(currentXP);
+
+        // Check if an ability is unlocked at the current level
+        if (abilities[currentLevel] && $("#abilities").find(`.ability:contains(${abilities[currentLevel]})`).length === 0) {
+          const ability = abilities[currentLevel];
+          $("#ability-unlock").text(`Ability Unlocked: ${ability}!`).fadeIn().delay(3000).fadeOut();
+          $("#abilities").append(`<div class="ability">${ability}</div>`);
+        }
+      }
+
+      $("#level-up-btn").click(function() {
+        if (currentLevel < maxLevel) {
+          currentXP += 20; // Adjust XP gain per click
+          if (currentXP >= xpPerLevel) {
+            currentLevel++;
+            currentXP = currentXP % xpPerLevel; // Carry over any extra XP
+          }
+          updateProgress();
+        }
+      });
+
+      $("#reset-btn").click(function() {
+        currentLevel = 1;
+        currentXP = 0;
+        $("#abilities").empty();
+        $("#milestone").hide();
+        updateProgress();
+      });
+
+      updateProgress(); // Initial call to set up the display
+    });
+  </script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Search Bar</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Styles for the input field */
+    #tags {
+      width: 30%; /* Adjusts the width of the search bar */
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 20px; /* Curves the corners */
+      border: 1px solid #ccc; /* Adds a subtle border */
+      background-color: #333; /* Background color for the input */
+      color: #ddd; /* Text color */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    }
+    #tags:focus {
+      border-color: #0056b3; /* Focus border color */
+      box-shadow: 0 0 8px rgba(0, 86, 179, 0.5); /* Focus shadow */
+      outline: none; /* Removes default outline */
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    #relatedTopics {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #007bff;
+    }
+    #relatedTopics ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    #relatedTopics li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="sidebar">
+    <h3>Widgets</h3>
+    <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+    <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+    <a href="../pages/Button.html" data-target="#button">Button</a>
+    <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+    <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+    <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+    <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+    <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+    <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+    <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+    <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+    <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+    <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+    <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+  </div>
+
+  <div class="content">
+    <h1>Solo Leveling Autocomplete</h1>
+    <label for="tags">Search:</label>
+    <input id="tags" type="text" placeholder="Type to search...">
+    <div id="output"></div>
+    <div id="relatedTopics"></div> <!-- This will display the related topics -->
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../js/shared.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // Ensure no saved input is set in the search field
+    $('#tags').val("");  // Clear any saved input in the search bar on page load
+    
+    // Function to display related topics based on the search input
+    function displayRelatedTopics(input) {
+      let topics = [];
+
+      // Example logic for related topics, modify as needed
+      if (input.toLowerCase().includes("javascript")) {
+        topics = ["JavaScript Basics", "Advanced JavaScript", "JavaScript Frameworks"];
+      } else if (input.toLowerCase().includes("css")) {
+        topics = ["CSS Basics", "CSS Flexbox", "CSS Grid"];
+      } else if (input.toLowerCase().includes("html")) {
+        topics = ["HTML Basics", "HTML5 Features", "SEO Best Practices"];
+      }
+
+      // Display related topics
+      let topicList = '<ul>';
+      topics.forEach(function(topic) {
+        topicList += `<li>${topic}</li>`;
+      });
+      topicList += '</ul>';
+      $('#relatedTopics').html(topicList);
+    }
+
+    // Run the display related topics function when input changes
+    $('#tags').on('input', function() {
+      const inputValue = $(this).val();
+      displayRelatedTopics(inputValue);
+    });
+  });
+</script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

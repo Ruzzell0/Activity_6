@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling Accordion</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+    h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+  
+    <div class="content">
+      <h1>Solo Leveling Information</h1>
+      
+      <!-- Accordion for Solo Leveling Content -->
+      <div id="accordion">
+        <div class="accordion-header">Introduction to Solo Leveling</div>
+        <div class="accordion-content">
+          <p>"Solo Leveling" is a South Korean webtoon based on Chugong's web novel. It follows Sung Jin-Woo, a weak hunter who gains a unique power to level up, becoming the world’s only "player."</p>
+          <p>The series, known for its engaging plot and stunning art, debuted in 2018, quickly gaining fans worldwide.</p>
+        </div>
+  
+        <div class="accordion-header">Main Characters</div>
+        <div class="accordion-content">
+          <p><strong>Sung Jin-Woo</strong>, once the weakest hunter, becomes incredibly strong through his leveling system. Key characters include <strong>Cha Hae-In</strong>, an S-Rank hunter, and <strong>Go Gun-Hee</strong>, the Korean Hunter Association's chairman.</p>
+          <p>Supporting characters like <strong>Yu Jin-Ho</strong> and <strong>Seo Yoon-hee</strong> enrich Jin-Woo's journey.</p>
+        </div>
+  
+        <div class="accordion-header">The World of Hunters</div>
+        <div class="accordion-content">
+          <p>In this world, hunters with supernatural powers battle monsters from "gates" appearing globally. Hunters rank from E to S, with S-rank as the strongest. This hierarchy defines Sung Jin-Woo’s journey to power.</p>
+          <p>These gates lead to dungeons filled with monsters, requiring teamwork and strategy to conquer.</p>
+        </div>
+  
+        <div class="accordion-header">Unique Features</div>
+        <div class="accordion-content">
+          <p>Sung Jin-Woo has a rare "level up" system similar to video games. This feature lets him gain experience, unlock skills, and collect items, adding an RPG element to the story.</p>
+          <p>This leveling system, with quests and skill trees, appeals to fans who enjoy gaming themes.</p>
+        </div>
+  
+        <div class="accordion-header">Popularity and Adaptations</div>
+        <div class="accordion-content">
+          <p>“Solo Leveling” has been widely translated and adapted, with an anime series and potential live-action. The anime promises to bring its action scenes to life, growing its fanbase even more.</p>
+          <p>Merchandise, fan art, and adaptations further boost its cultural impact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+
+  <script>
+    $(function() {
+  $("#accordion").accordion({
+    collapsible: true, // Allows sections to be closed
+    active: false, // No section is active by default
+    heightStyle: "content" // Adjust height according to content
+  });
+});
+  </script>
+
+  <footer class="footer">
+    College of Information and Computing Sciences © 2022
+  </footer>
+
+</body>
+</html>

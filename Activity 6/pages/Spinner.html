@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling Autocomplete Search</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+    .content-description p {
+        color: #fff;
+        text-align: justify; /* Justify the text */
+      }
+    h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .content-description {
+      margin-top: 20px;
+    }
+    .content-description h3 {
+      color: #fff;
+    }
+    .content-description p {
+      color: #fff;
+    }
+    #search {
+      width: 30%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background-color: #333;
+      color: #ddd;
+    }
+
+    /* Spinner Style */
+    .spinner {
+      border: 4px solid #f3f3f3; /* Light grey */
+      border-top: 4px solid #ffcc00; /* Yellow */
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+      margin: 20px auto;
+    }
+
+    /* Spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Spinner</h1>
+
+      <label for="search">Search for Solo Leveling Topics:</label>
+      <input id="search" name="search" type="text">
+      
+      <!-- Spinner element -->
+      <div id="spinner" class="spinner" style="display: none;"></div>
+
+      <div class="content-description" id="content-description"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      // Array of Solo Leveling-related topics and their content descriptions with twists
+      var soloLevelingData = [
+        { label: "Jinwoo Sung", description: "Jinwoo Sung starts as the weakest hunter, but he discovers that his system is not just a tool for power – it seems to have a mind of its own, influencing his actions and guiding him toward unknown, dangerous secrets. As Jinwoo rises to power, he starts to notice subtle hints that his system might be connected to a larger, cosmic force, one that isn't entirely benevolent." },
+        { label: "Shadow Soldiers", description: "Jinwoo’s shadow soldiers are not mere minions; they may be remnants of ancient warriors who were once bound by an even more powerful force than Jinwoo’s system. Some of these shadows begin to exhibit strange behavior, suggesting that they remember their past lives. Could these soldiers be more than just soulless constructs, and could they hold the key to Jinwoo’s future battles?" },
+        { label: "System Interface", description: "The System Interface grants Jinwoo the power to level up, but it also has an unsettling side effect – it occasionally glitches, revealing cryptic messages and warnings about something beyond the dungeon’s monsters. As Jinwoo’s power grows, the glitches become more frequent, and it becomes clear that the System Interface may be trying to communicate something to him – or perhaps, control him." },
+        { label: "Awakened Hunter", description: "Awakened hunters are rare, but Jinwoo’s awakening is unlike any other. While others gain abilities through the system, Jinwoo’s powers seem to be a result of a secret, ancient pact made with an unknown entity long before the System’s emergence. The true extent of his abilities is still hidden, and each new power he gains seems to open doors to deeper mysteries about the System’s true origin." },
+        { label: "Dungeon Breakthrough", description: "Dungeons are not just battlegrounds for power, but also gateways to hidden realms that even Jinwoo is unaware of. As he breaks through one dungeon after another, he uncovers clues about the existence of parallel worlds and alternate realities. These realms are said to house gods, monsters, and ancient beings that were once thought to be mere legends." },
+        { label: "S-Rank Dungeon", description: "The S-Rank Dungeon represents a realm of near-immortal beings. But what if Jinwoo’s success within these dungeons isn’t just about his growing strength? There are whispers that the S-Rank dungeons serve as tests set by a higher power, a power that Jinwoo has unknowingly attracted. The more he clears these dungeons, the more dangerous the tests become, leading him to question whether his actions are truly his own." },
+        { label: "The Emperor", description: "The Emperor is an ancient figure who once ruled over an empire of shadows. However, unlike other powerful beings, the Emperor has a hidden agenda. Jinwoo's encounter with the Emperor reveals a truth about his own powers – could he be the reincarnation of this long-dead emperor, destined to reclaim the throne of a shadowy, forgotten empire?" },
+        { label: "Reaper's Skills", description: "The Reaper’s Skills are not only death-bringing powers but are said to have originated from a forgotten war between gods and demons. As Jinwoo masters these skills, he begins to unlock memories that aren’t his own, memories from a time before the system. These memories suggest that the Reaper’s Skills might hold the key to controlling life and death itself." },
+        { label: "Solo Leveling's End", description: "The end of *Solo Leveling* is not just the defeat of the Shadow Monarch; it marks the start of an even greater conflict. Jinwoo’s victory against the Monarch reveals a hidden truth: the real battle is only just beginning. The System itself is part of a much larger, cosmic war that spans dimensions, and Jinwoo’s journey is far from over." },
+        { label: "Jeong Yujin", description: "Jeong Yujin, while an ally to Jinwoo, hides a dark secret: she is part of a faction that seeks to control the powers of the System for their own purposes. Her connection to Jinwoo is not purely one of friendship, and her role in his journey may be far more complicated than he realizes. Will she betray him, or will she ultimately become a key figure in the battle against the true force that created the System?" },
+        { label: "The Shadow Monarch", description: "The Shadow Monarch is more than just an antagonist; he is a guardian of a forbidden truth about the System. His true nature is tied to the origins of the very powers Jinwoo wields. Their final battle is not just a clash of strength but a battle for control over the future of the System and the fate of all the worlds it has touched." },
+        { label: "Hunter Guilds", description: "Hunter Guilds may appear as organizations to protect humanity, but some guilds harbor dark secrets. These guilds are not just fighting monsters; they are competing for control of the System itself. Jinwoo begins to uncover that the guilds may be the key to understanding the true nature of the dungeons, and one guild in particular might have played a role in the creation of the System." },
+        { label: "Sung Jinwoo vs Antares", description: "The final battle between Sung Jinwoo and Antares is not just a fight between two powerful beings. It is a battle that could alter the very fabric of reality. The outcome will determine not just the fate of the world, but also whether Jinwoo’s powers will be sealed away forever or unleashed into realms beyond comprehension." }
+      ];
+
+      // Set up autocomplete for the search bar
+      $("#search").autocomplete({
+        source: soloLevelingData,
+        minLength: 1,
+        search: function() {
+          // Show spinner when search starts
+          $("#spinner").show();
+        },
+        response: function(event, ui) {
+          // Hide spinner when search results are ready
+          $("#spinner").hide();
+        },
+        select: function(event, ui) {
+          // Show content description based on the selected item
+          var content = soloLevelingData.find(item => item.label === ui.item.label);
+          $("#content-description").html(`
+            <h3>${content.label}</h3>
+            <p>${content.description}</p>
+          `);
+        }
+      });
+    });
+  </script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

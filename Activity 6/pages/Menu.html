@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling Menu</title>
+  <link rel="stylesheet" href="../css/custom.css"> <!-- Link to custom CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+    h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Box design for the content */
+    .content-box {
+      background-color: #4a4e69; /* Dark gray background for the box */
+      padding: 20px; /* Space inside the box */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+      margin-top: 20px; /* Space between this and the rest of the page */
+      width: 80%; /* Adjust width as needed */
+      margin: 0 auto; /* Center the box horizontally */
+    }
+    /* Accordion-style menu */
+    #menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #menu > li {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #333333; /* Dark gray for the header */
+      color: #FFFFFF; /* White text for contrast */
+      border-radius: 4px;
+      margin-top: 3px;
+      transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover */
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for the menu */
+    }
+    #menu > li:hover {
+      background-color: #555555; /* Lighter gray on hover */
+      transform: translateY(-2px); /* Slight lift effect on hover */
+    }
+    /* Nested list styles */
+    #menu li ul {
+      padding-left: 20px;
+      margin: 0;
+      display: none; /* Hide nested items by default */
+    }
+    #menu li ul li {
+      background-color: #EDEDED; /* Light gray for nested items */
+      color: #333333; /* Dark gray text for contrast */
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 5px;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds depth to nested items */
+    }
+    #menu li ul li:hover {
+      background-color: #cccccc; /* Lighter background on hover */
+      transform: translateY(-2px); /* Lift effect for nested items */
+    }
+    /* Dialog styling */
+    #dialog {
+      font-size: 14px;
+      color: #E0E0E0; /* Light gray text */
+      background-color: #2c2c54; /* Dark background */
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Menu</h1>
+      
+      <ul id="menu">
+        <li class="expandable">Introduction to Manhwa
+          <ul>
+            <li data-info="An introduction to Manhwa, a popular style of South Korean comic books.">Details</li>
+          </ul>
+        </li>
+        <li class="expandable">Popular Genres
+          <ul>
+            <li data-info="Action genre - filled with dynamic fight scenes.">Action</li>
+            <li data-info="Fantasy genre - featuring magical worlds.">Fantasy</li>
+            <li data-info="Romance genre - focusing on relationships.">Romance</li>
+            <li data-info="Drama genre - offering intense storylines.">Drama</li>
+          </ul>
+        </li>
+        <li class="expandable">Top Manhwa Recommendations
+          <ul>
+            <li data-info="Solo Leveling - a story of a weak hunter growing stronger.">Solo Leveling</li>
+            <li data-info="Tower of God - a story of climbing a mysterious tower.">Tower of God</li>
+            <li data-info="The God of High School - a tournament for powerful fighters.">The God of High School</li>
+            <li data-info="Noblesse - the story of a powerful vampire.">Noblesse</li>
+          </ul>
+        </li>
+        <li class="expandable">Manhwa vs Manga
+          <ul>
+            <li data-info="Distinctive art styles.">Differences in Art Style</li>
+            <li data-info="Unique storytelling approaches.">Storytelling Approach</li>
+            <li data-info="Different reading formats.">Format and Reading Direction</li>
+          </ul>
+        </li>
+        <li class="expandable">Where to Read Manhwa
+          <ul>
+            <li data-info="Webtoon - a popular Manhwa platform.">Webtoon</li>
+            <li data-info="Tappytoon - offering exclusive titles.">Tappytoon</li>
+            <li data-info="Lezhin Comics - known for adult content.">Lezhin Comics</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    <div id="dialog" title="Information"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      // Initialize dialog box (hidden by default)
+      $("#dialog").dialog({
+        autoOpen: false,
+        width: 400,
+        modal: true
+      });
+
+      // Add click event to show info dialog for menu items
+      $("#menu li").on("click", function(event) {
+        event.stopPropagation(); // Prevent event from bubbling up
+        var info = $(this).data("info");
+
+        if (info) { // Only open dialog if data-info is present
+          $("#dialog").text(info);  // Set the content based on data-info attribute
+          $("#dialog").dialog("option", "title", $(this).text()); // Set title to item text
+          $("#dialog").dialog("open");
+        }
+      });
+
+      // Toggle nested lists for expandable items
+      $(".expandable").on("click", function(event) {
+        $(this).children("ul").slideToggle(); // Toggle visibility of the nested list
+      });
+    });
+  </script>
+
+  <footer class="footer">
+    College of Information and Computing Sciences © 2022
+  </footer>
+
+</body>
+</html>

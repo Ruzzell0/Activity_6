@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs Widget</title>
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+    /* Content Section Styles (Match General Style) */
+    .content {
+      flex: 1;
+      padding: 20px;
+      background-color: #2b2d42; /* Dark theme */
+      color: #ddd;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #tabs {
+      background-color: #333;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    #tabs ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
+    #tabs ul li {
+      margin-right: 20px;
+    }
+    #tabs ul li a {
+      color: #ffcc00;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      background-color: #444;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    #tabs ul li a:hover {
+      background-color: #555;
+    }
+    #tabs div {
+      display: none;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #tabs div.active {
+      display: block;
+    }
+    h3 {
+      font-size: 28px;
+      color: #ffcc00;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+    strong {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+    .highlight {
+      color: #ffcc00;
+      font-style: italic;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Tabs</h1>
+
+      <div id="tabs">
+        <ul>
+          <li><a href="#tab-1">Overview</a></li>
+          <li><a href="#tab-2">Characters</a></li>
+          <li><a href="#tab-3">Content & Features</a></li>
+        </ul>
+        <div id="tab-1">
+          <h3>Overview of <span class="highlight">Solo Leveling</span></h3>
+          <p><span class="highlight">Solo Leveling</span> is a thrilling Korean web novel and manhwa about Jinwoo Sung, a seemingly weak hunter who gains the ability to level up after a near-death experience. As he evolves into a powerful force, he uncovers the secrets of his world, facing countless challenges along the way.</p>
+          <p>The series is a blend of intense action, mystery, and stunning visuals, drawing readers into a gripping narrative of growth, survival, and discovery.</p>
+        </div>
+        <div id="tab-2">
+          <h3>Main Characters in <span class="highlight">Solo Leveling</span></h3>
+          <p>Key characters that define the story include:</p>
+          <ul>
+            <li><strong>Jinwoo Sung:</strong> The protagonist, who transforms from a powerless hunter to a legendary figure.</li>
+            <li><strong>Cha Hae-In:</strong> A skilled hunter and Jinwoo’s trusted ally, playing a pivotal role in his journey.</li>
+            <li><strong>Goo Jin-Chul:</strong> A mentor to Jinwoo, providing invaluable guidance in his early days.</li>
+            <li><strong>The System:</strong> An artificial intelligence that presents Jinwoo with quests, rewards, and crucial support.</li>
+          </ul>
+          <p>These characters, with their distinct personalities and evolving relationships, deepen the series’ emotional impact and excitement.</p>
+        </div>
+        <div id="tab-3">
+          <h3>Content & Features of <span class="highlight">Solo Leveling</span></h3>
+          <p>What makes <span class="highlight">Solo Leveling</span> stand out:</p>
+          <ul>
+            <li><strong>Amazing Artwork:</strong> The striking visuals, especially the battle scenes, bring the story to life, immersing readers in the action.</li>
+            <li><strong>Leveling System:</strong> The unique progression system mirrors the thrill of a video game, where each challenge feels like a new level to conquer.</li>
+            <li><strong>Expansive World-Building:</strong> A rich and immersive world filled with monsters, dungeons, and an evolving hierarchy that keeps readers hooked.</li>
+            <li><strong>Heart-Stopping Battles:</strong> The epic confrontations between hunters and monsters are some of the most thrilling aspects of the story.</li>
+            <li><strong>Emotional Depth:</strong> Beyond the action, the series explores the emotional journeys of its characters, highlighting themes of loyalty, sacrifice, and personal growth.</li>
+          </ul>
+          <p>These features combine to make <span class="highlight">Solo Leveling</span> a one-of-a-kind experience for fans of action, adventure, and fantasy.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      $("#tabs").tabs();
+    });
+  </script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

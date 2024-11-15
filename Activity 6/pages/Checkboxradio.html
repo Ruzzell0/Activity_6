@@ -1,0 +1,178 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkboxradio Widget - Solo Leveling</title>
+  <link rel="stylesheet" href="../css/custom.css"> <!-- Link to custom CSS -->
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Styling for spacing and icons */
+    .checkbox-group {
+      margin-top: 20px;
+    }
+    .checkbox-group label {
+      margin-right: 10px;
+      position: relative;
+      padding-left: 34px;
+      display: inline-block;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+    .checkbox-group label:before {
+      content: url('https://via.placeholder.com/16'); /* Placeholder for icons */
+      position: absolute;
+      left: 0;
+      top: 5px;
+    }
+    /* Custom styling for toggle switches */
+    input[type="checkbox"].toggle {
+      display: none;
+    }
+    input[type="checkbox"].toggle + label:after {
+      content: '';
+      width: 34px;
+      height: 20px;
+      background: #ddd;
+      border-radius: 15px;
+      position: absolute;
+      left: 0;
+      top: 4px;
+      transition: 0.3s;
+    }
+    input[type="checkbox"].toggle + label:before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: 4px;
+      top: 7px;
+      transition: 0.3s;
+    }
+    input[type="checkbox"].toggle:checked + label:after {
+      background: #007bff;
+    }
+    input[type="checkbox"].toggle:checked + label:before {
+      transform: translateX(16px);
+    }
+    /* Spacing between topics */
+    .checkbox-group div {
+      margin-bottom: 10px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+      <!-- More links as needed -->
+    </div>
+  
+    <div class="content">
+      <h1>Solo Leveling Checkboxradio</h1>
+
+      <h3>Solo Leveling Manhwa Topics</h3>
+      <div class="checkbox-group">
+        <!-- Toggle switch options -->
+        <div>
+          <input type="checkbox" id="toggle-1" class="toggle">
+          <label for="toggle-1" title="The main protagonist of Solo Leveling">Jin-Woo</label>
+        </div>
+        <div>
+          <input type="checkbox" id="toggle-2" class="toggle">
+          <label for="toggle-2" title="Jin-Woo's powerful shadow army">Shadow Army</label>
+        </div>
+        <div>
+          <input type="checkbox" id="toggle-3" class="toggle">
+          <label for="toggle-3" title="The organization overseeing hunters">Hunter Association</label>
+        </div>
+        <div>
+          <input type="checkbox" id="toggle-4" class="toggle">
+          <label for="toggle-4" title="Mysterious and powerful beings">Monarchs</label>
+        </div>
+        <div>
+          <input type="checkbox" id="toggle-5" class="toggle">
+          <label for="toggle-5" title="Dungeons that hunters explore and conquer">Dungeons</label>
+        </div>
+        <!-- New topic added as toggle -->
+        <div>
+          <input type="checkbox" id="toggle-6" class="toggle">
+          <label for="toggle-6" title="Final battle and plot twist of Solo Leveling">Endgame Battle</label>
+        </div>
+
+        <!-- Radio option for a toggle selection -->
+        <h3>Select Your Favorite Character:</h3>
+        <div>
+          <input type="radio" name="favorite-character" id="radio-1">
+          <label for="radio-1" title="The main protagonist">Jin-Woo</label>
+        </div>
+        <div>
+          <input type="radio" name="favorite-character" id="radio-2">
+          <label for="radio-2" title="Support character and guild master">Cha Hae-In</label>
+        </div>
+        <div>
+          <input type="radio" name="favorite-character" id="radio-2">
+          <label for="radio-2" title="Support character and guild master">Go Gun-Hee</label>
+        </div>
+        <div>
+          <input type="radio" name="favorite-character" id="radio-2">
+          <label for="radio-2" title="Support character and guild master">Yoo Jinho</label>
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+      <script src="../js/shared.js"></script> <!-- Link to shared JS -->
+      <script>
+        $(function() {
+          // Apply checkboxradio widget styling and enable tooltips
+          $("#toggle-1, #toggle-2, #toggle-3, #toggle-4, #toggle-5, #toggle-6").checkboxradio().tooltip();
+          $("#radio-1, #radio-2").checkboxradio().tooltip();
+
+          // Additional functionality: Toggle all checkboxes on click of a button
+          $("<button>Toggle Selection</button>")
+            .appendTo(".checkbox-group")
+            .click(function() {
+              $("input[type='checkbox']").each(function() {
+                $(this).prop("checked", !$(this).prop("checked")).checkboxradio("refresh");
+              });
+            });
+        });
+      </script>
+    </div>
+  </div>
+
+  <footer class="footer">
+    College of Information and Computing Sciences © 2022
+  </footer>
+
+</body>
+</html>

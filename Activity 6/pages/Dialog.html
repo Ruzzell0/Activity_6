@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dialog Example</title>
+  <link rel="stylesheet" href="../css/custom.css"> <!-- Link to custom CSS -->
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #soloLevelingDialog {
+      display: none;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 600px;
+      height: 400px;  /* Set a fixed height for normal size */
+      overflow-y: auto;  /* Vertical scroll if content overflows */
+      position: fixed;  /* Fix the position to the viewport */
+      top: 50%;  /* Center vertically */
+      left: 50%;  /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust to truly center */
+      z-index: 1000; /* Ensure it's above other content */
+    }
+    /* Style for the close button */
+    .close-dialog-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .close-dialog-btn:hover {
+      background-color: #d32f2f;
+    }
+    .open-dialog-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .open-dialog-btn:hover {
+      background-color: #555;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+      <!-- More links as needed -->
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Dialog</h1>
+
+      <!-- Button to Open Dialog -->
+      <a href="#" class="open-dialog-btn" id="openDialog">Learn More About Solo Leveling</a>
+
+      <!-- Dialog Section -->
+      <div id="soloLevelingDialog" title="Solo Leveling: A Journey of Strength">
+        <button class="close-dialog-btn" id="closeDialog">X</button> <!-- Close Button -->
+        <h3 style="margin-top: 20px;">Introduction to Solo Leveling</h3>
+        <p style="margin-bottom: 20px;">
+          "Solo Leveling" is a South Korean webtoon (or manhwa) based on the web novel written by Chugong. It chronicles the life of Sung Jin-Woo, a weak and low-ranked hunter in a world where supernatural abilities are common. However, he gains the unique ability to level up and grow stronger, just like a character in a video game.
+        </p>
+    
+        <h3 style="margin-top: 20px;">Main Characters</h3>
+        <ul style="margin-bottom: 20px;">
+          <li><strong>Sung Jin-Woo</strong>: The protagonist, initially one of the weakest hunters but gradually becomes one of the most powerful.</li>
+          <li><strong>Cha Hae-In</strong>: A strong and skilled S-Rank hunter who eventually becomes an ally to Jin-Woo.</li>
+          <li><strong>Go Gun-Hee</strong>: The Chairman of the Korean Hunter Association, who plays a pivotal role in Jin-Woo's rise.</li>
+          <li><strong>Yu Jin-Ho</strong>: A loyal companion and fellow hunter who helps Jin-Woo grow stronger.</li>
+        </ul>
+    
+        <h3 style="margin-top: 20px;">The World of Hunters</h3>
+        <p style="margin-bottom: 20px;">
+          In the world of "Solo Leveling," the appearance of "gates" opens up dungeons filled with monsters. Hunters, individuals with supernatural abilities, are tasked with clearing these dungeons to protect humanity. The hunters are ranked from E to S, with S-ranked hunters being the most powerful. The story follows Jin-Woo as he rises through the ranks, taking on increasingly dangerous and powerful enemies.
+        </p>
+    
+        <h3 style="margin-top: 20px;">Unique Features of the Series</h3>
+        <ul style="margin-bottom: 20px;">
+          <li><strong>Leveling System:</strong> Unlike other hunters, Jin-Woo possesses the ability to level up through experience points, similar to a video game character.</li>
+          <li><strong>RPG Elements:</strong> The series integrates RPG-like features, including quests, skills, and inventory management, making it appealing to fans of video games.</li>
+          <li><strong>Action and Strategy:</strong> Each battle and dungeon requires careful strategy, as Jin-Woo must overcome powerful monsters and unexpected challenges.</li>
+        </ul>
+    
+        <h3 style="margin-top: 20px;">Popularity and Impact</h3>
+        <p style="margin-bottom: 20px;">
+          "Solo Leveling" has become a global sensation, attracting a massive fanbase. Its thrilling plot, stunning art, and unique concept have earned it an anime adaptation. Fans eagerly await the anime to see their favorite moments from the manhwa brought to life on screen.
+        </p>
+    
+        <h3 style="margin-top: 20px;">Future Prospects</h3>
+        <p>
+          With its expanding universe and thrilling storyline, "Solo Leveling" has the potential to become one of the most iconic action series of the decade. Fans anticipate new adaptations, merchandise, and perhaps even live-action adaptations in the future.
+        </p>
+      </div>    
+
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../js/shared.js"></script>
+<script>
+  $(document).ready(function() {
+    // Open dialog functionality
+    $("#openDialog").click(function(e) {
+      e.preventDefault(); // Prevent default link behavior
+      $("#soloLevelingDialog").dialog({
+        modal: true,
+        width: 600, // Set a fixed width
+        height: 400, // Set a fixed height
+      });
+    });
+
+    // Close dialog functionality
+    $("#closeDialog").click(function() {
+      $("#soloLevelingDialog").dialog("close");
+    });
+  });
+</script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

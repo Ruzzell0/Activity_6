@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Widget</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/custom.css"> <!-- Link to custom CSS -->
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .button-group button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #333333; /* Medium dark gray for the button */
+      color: #FFFFFF; /* White text for contrast */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 16px; /* Font size for better readability */
+    }
+    .button-group button:hover {
+      background-color: #555555; /* Lighter dark gray on hover */
+    }
+    .dialog-content p {
+      text-align: justify; /* Justified text for dialog content */
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="sidebar">
+    <h3>Widgets</h3>
+    <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+    <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+    <a href="../pages/Button.html" data-target="#button">Button</a>
+    <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+    <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+    <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+    <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+    <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+    <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+    <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+    <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+    <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+    <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+    <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    <!-- More links as needed -->
+  </div>
+
+  <div class="content">
+    <h1>Solo Leveling Button</h1>
+    
+    <!-- Button Group -->
+    <div class="button-group">
+      <button class="learn-more-button">Learn More About Solo Leveling</button>
+      <button class="explore-titles-button">Explore More Titles</button>
+      <button class="check-releases-button">Check Latest Releases</button>
+      <button class="join-community-button">Join the Community</button>
+      <button class="new-feature-button">Discover New Features</button> <!-- New button -->
+    </div>
+
+    <!-- Dialog for Solo Leveling -->
+    <div id="dialog-solo-leveling" title="Solo Leveling" style="display:none;">
+      <div class="dialog-content">
+        <h2>Solo Leveling</h2>
+        <p><strong>Genre:</strong> Action, Fantasy, Adventure</p>
+        <p><strong>Author:</strong> Chugong</p>
+        <p><strong>Synopsis:</strong> In a world where hunters battle monsters, the weakest hunter, Sung Jin-Woo, finds himself in a deadly dungeon. After a near-fatal encounter, he gains a mysterious ability that allows him to "level up" and become the strongest hunter. Follow his journey as he rises from the lowest rank to the pinnacle of power, uncovering secrets and facing formidable foes along the way.</p>
+      </div>
+    </div>
+
+    <!-- Dialog for Exploring More Titles -->
+    <div id="dialog-explore-titles" title="Explore More Titles" style="display:none;">
+      <div class="dialog-content">
+        <h2>Explore More Titles</h2>
+        <p>Discover a wide range of titles across various genres! Whether you’re into fantasy, action, romance, or mystery, we have something for everyone.</p>
+      </div>
+    </div>
+
+    <!-- Dialog for Checking Latest Releases -->
+    <div id="dialog-check-releases" title="Check Latest Releases" style="display:none;">
+      <div class="dialog-content">
+        <h2>Latest Releases</h2>
+        <p>Stay updated with the latest releases in webtoons and novels! Find out what's new and trending in the world of storytelling.</p>
+      </div>
+    </div>
+
+    <!-- Dialog for Joining the Community -->
+    <div id="dialog-join-community" title="Join the Community" style="display:none;">
+      <div class="dialog-content">
+        <h2>Join the Community</h2>
+        <p>Connect with fellow fans and join discussions about your favorite titles! Participate in events, forums, and more.</p>
+      </div>
+    </div>
+
+    <!-- Dialog for Discovering New Features -->
+    <div id="dialog-new-feature" title="Discover New Features" style="display:none;">
+      <div class="dialog-content">
+        <h2>New Features</h2>
+        <p>Experience the latest features designed to enhance your reading experience! Get early access to updates and special releases.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../js/shared.js"></script> <!-- Link to shared JS -->
+<script>
+  $(function() {
+    // Initialize buttons and show respective dialogs when clicked
+    $(".learn-more-button").on("click", function() {
+      $("#dialog-solo-leveling").dialog({
+        modal: true,
+        width: 400,
+        height: 'auto',
+        buttons: {
+          Close: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    });
+
+    $(".explore-titles-button").on("click", function() {
+      $("#dialog-explore-titles").dialog({
+        modal: true,
+        width: 400,
+        height: 'auto',
+        buttons: {
+          Close: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    });
+
+    $(".check-releases-button").on("click", function() {
+      $("#dialog-check-releases").dialog({
+        modal: true,
+        width: 400,
+        height: 'auto',
+        buttons: {
+          Close: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    });
+
+    $(".join-community-button").on("click", function() {
+      $("#dialog-join-community").dialog({
+        modal: true,
+        width: 400,
+        height: 'auto',
+        buttons: {
+          Close: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    });
+
+    $(".new-feature-button").on("click", function() {
+      $("#dialog-new-feature").dialog({
+        modal: true,
+        width: 400,
+        height: 'auto',
+        buttons: {
+          Close: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

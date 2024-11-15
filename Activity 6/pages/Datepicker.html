@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datepicker - Solo Leveling</title>
+  <link rel="stylesheet" href="../css/custom.css"> <!-- Link to custom CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Custom Styles for Datepicker */
+    #datepicker {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 20px;
+      width: 320px; /* Slightly wider */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-family: 'Arial', sans-serif;
+    }
+    #datepicker-element {
+      margin-top: 10px;
+    }
+    /* Event Details Styling */
+    #eventDetails {
+      display: none;
+      margin-top: 20px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+    #datepicker-input {
+  width: 30%; /* Ensure the input takes up enough space */
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 20px; /* Adds curve to the corners */
+  border: 1px solid #ccc; /* Optional: adds a border */
+  background-color: #333; /* Optional: sets background color */
+  color: #ddd; /* Optional: sets text color */
+  box-sizing: border-box; /* Ensures padding does not affect width */
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="sidebar">
+    <h3>Widgets</h3>
+    <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+    <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+    <a href="../pages/Button.html" data-target="#button">Button</a>
+    <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+    <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+    <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+    <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+    <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+    <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+    <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+    <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+    <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+    <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+    <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    <!-- More links as needed -->
+  </div>
+  
+  <div class="content">
+    <h1>Solo Leveling Datepicker</h1>
+
+    <h3>Important Dates in Solo Leveling</h3>
+    <p>Select a date to view important milestones related to "Solo Leveling".</p>
+
+    <input type="text" id="datepicker-input" placeholder="Select a date" />
+
+    <div id="eventDetails">
+      <h4 id="eventTitle"></h4>
+      <p id="eventDescription"></p>
+      <img id="eventImage" src="" alt="" style="max-width: 100%; display: none;" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .content h1 {
+    margin-bottom: 10px; /* Add space after the main title */
+  }
+
+  .content h3 {
+    margin-bottom: 10px; /* Add space after the subtitle */
+  }
+
+  .content p {
+    margin-bottom: 10px; /* Add space below the paragraph */
+  }
+
+  #datepicker-input {
+    margin-bottom: 1px; /* Space below the input field */
+    padding: 10px;
+    width: 25%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  </style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<script src="../js/shared.js"></script>
+<script>
+  $(function() {
+    const events = {
+      '2021-03-10': {
+        title: "Solo Leveling Volume 1 Release",
+        image: "https://example.com/volume1.jpg", // Replace with actual image URL
+        description: "The first volume of *Solo Leveling* was released, introducing readers to Sung Jin-Woo's journey from the weakest hunter to a powerful warrior."
+      },
+      '2022-10-10': {
+        title: "Final Chapter Release",
+        image: "https://example.com/final-chapter.jpg", // Replace with actual image URL
+        description: "The final chapter of *Solo Leveling* was published, concluding the epic journey of Sung Jin-Woo and the Hunters."
+      },
+      // Additional dates and events can be added here
+    };
+
+    const randomFacts = [
+      "Did you know? Sung Jin-Woo started as the weakest hunter, an E-rank, but became one of the strongest through his perseverance!",
+      "Interesting Fact: The series was first serialized as a web novel before becoming a manhwa.",
+      "Trivia: Sung Jin-Woo’s character design is inspired by classic RPG heroes.",
+      "Did you know? Sung Jin-Woo’s weapon of choice often includes powerful daggers and shadows!",
+      "Fun Fact: The manhwa adaptation gained a massive international following shortly after its release."
+    ];
+
+    // Initialize Pikaday Datepicker
+    var picker = new Pikaday({
+      field: document.getElementById('datepicker-input'),
+      format: 'YYYY-MM-DD',
+      onSelect: function(date) {
+        const dateString = picker.toString();
+        const event = events[dateString];
+        if (event) {
+          $("#eventTitle").text(event.title);
+          $("#eventDescription").text(event.description);
+          if (event.image) {
+            $("#eventImage").attr("src", event.image).show();
+          } else {
+            $("#eventImage").hide();
+          }
+          $("#eventDetails").show();
+        } else {
+          // Show a random fact if no specific event is available
+          const randomFact = randomFacts[Math.floor(Math.random() * randomFacts.length)];
+          $("#eventTitle").text("Random Solo Leveling Fact");
+          $("#eventDescription").text(randomFact);
+          $("#eventImage").hide();
+          $("#eventDetails").show();
+        }
+      }
+    });
+  });
+</script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

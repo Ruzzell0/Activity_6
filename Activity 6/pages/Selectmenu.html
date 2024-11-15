@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling Selectmenu</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <style>
+    h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Style for the selectmenu element */
+    #selectmenu {
+      width: 30%; /* Ensure the select menu takes up enough space */
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 20px; /* Adds curve to the corners */
+      border: 1px solid #ccc; /* Optional: adds a border */
+      background-color: #333; /* Background color */
+      color: #ddd; /* Text color */
+    }
+
+    /* Override jQuery UI styles */
+    .ui-selectmenu-button {
+      background-color: #333 !important; /* Background color */
+      color: #ddd !important; /* Text color */
+      border-radius: 20px !important; /* Border radius */
+      padding: 8px 12px !important; /* Padding */
+      border: 1px solid #ccc !important; /* Border */
+      font-size: 16px !important; /* Font size */
+    }
+
+    .ui-selectmenu-button-open {
+      background-color: #444 !important; /* Color when dropdown is open */
+    }
+
+    .ui-selectmenu-menu {
+      background-color: #333 !important; /* Background color of the dropdown */
+      color: #ddd !important; /* Text color */
+      border-radius: 10px !important; /* Radius for dropdown */
+      border: 1px solid #ccc !important; /* Border for dropdown */
+    }
+
+    .ui-selectmenu-item {
+      padding: 8px 12px !important; /* Padding for each option */
+    }
+
+    .ui-state-hover {
+      background-color: #555 !important; /* Hover effect */
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+    </div>
+    
+    <div class="content">
+      <h1>Solo Leveling Selectmenu</h1>
+
+      <p>Select a topic to learn more about the world of Solo Leveling!</p>
+
+      <select id="selectmenu">
+        <option value="sung-jinwoo">Who is Sung Jinwoo?</option>
+        <option value="system">What is the System in Solo Leveling?</option>
+        <option value="hunters">The most powerful hunters in Solo Leveling</option>
+        <option value="monsters">Top Monsters in Solo Leveling</option>
+        <option value="shadow-soldiers">What are Shadow Soldiers?</option>
+        <option value="key-events">Key Events in Solo Leveling</option>
+        <option value="anime">Solo Leveling Anime Announcement</option>
+        <option value="characters">Characters in Solo Leveling</option>
+        <option value="guilds">The Guilds of Solo Leveling</option>
+      </select>
+
+      <div id="contentDisplay" style="margin-top: 20px; font-size: 16px;"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script>
+  <script>
+    $(function() {
+      // Initialize selectmenu
+      $("#selectmenu").selectmenu();
+
+      // Event handler for selection change
+      $("#selectmenu").on("selectmenuchange", function(event, ui) {
+        let selectedOption = ui.item.value;
+        let content = '';
+
+        switch (selectedOption) {
+          case 'sung-jinwoo':
+            content = "Sung Jinwoo is the protagonist of Solo Leveling. He starts as the weakest hunter but becomes the world's strongest after being chosen by the System.";
+            break;
+          case 'system':
+            content = "The System in Solo Leveling is a mysterious force that grants abilities and quests to hunters, allowing them to level up and grow stronger.";
+            break;
+          case 'hunters':
+            content = "Some of the most powerful hunters include Sung Jinwoo, Cha Hae-In, and Go Gun-Hee. These hunters are known for their extraordinary abilities and strength.";
+            break;
+          case 'monsters':
+            content = "Top monsters in Solo Leveling include the S-Rank monsters like the Giant, the Dragon, and the Demon King, each being a formidable opponent.";
+            break;
+          case 'shadow-soldiers':
+            content = "Shadow Soldiers are beings created by Sung Jinwoo after he absorbs the shadows of defeated monsters. They serve him and become a powerful force.";
+            break;
+          case 'key-events':
+            content = "Key events include the rise of Sung Jinwoo, the awakening of the System, and the confrontation with powerful guilds and monsters.";
+            break;
+          case 'anime':
+            content = "The Solo Leveling anime adaptation is highly anticipated, bringing the beloved story to a larger audience. It's expected to follow the original plot.";
+            break;
+          case 'characters':
+            content = "The characters in Solo Leveling include Sung Jinwoo, Cha Hae-In, Yoo Jin-Ho, and many others, each with unique personalities and skills.";
+            break;
+          case 'guilds':
+            content = "The Guilds in Solo Leveling play a significant role in the world of hunters. Some of the major guilds include the White Tiger Guild and the Hunters Guild.";
+            break;
+          default:
+            content = "Please select a topic to learn more about Solo Leveling.";
+        }
+
+        // Display the selected content
+        $('#contentDisplay').html(content);
+      });
+    });
+  </script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>

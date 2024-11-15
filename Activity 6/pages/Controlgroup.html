@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controlgroup Widget - Solo Leveling</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> <!-- Include jQuery UI CSS -->
+  <link rel="stylesheet" href="../css/custom.css"> <!-- Link to custom CSS -->
+  <style>
+     h1 {
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Controlgroup styles */
+    #controlgroup {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      padding: 15px;
+      background-color: #2C2C2C; /* Darker gray background for controlgroup */
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    #controlgroup select,
+    #controlgroup input[type="radio"],
+    #controlgroup input[type="checkbox"],
+    #controlgroup input[type="range"],
+    #controlgroup button {
+      margin-bottom: 12px;
+      padding: 10px;
+      font-size: 15px;
+      border-radius: 5px;
+      border: 1px solid #444444; /* Medium dark gray border */
+      background-color: #5C4F4F; /* Softer dark brown-gray for inputs */
+      color: #FFFFFF; /* Light gray text for better readability */
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    #controlgroup select:focus,
+    #controlgroup input[type="radio"]:focus,
+    #controlgroup input[type="checkbox"]:focus,
+    #controlgroup input[type="range"]:focus {
+      border-color: #777777;  /* Lighter gray border on focus */
+      background-color: #6C5C5C; /* Slightly lighter brown-gray on focus */
+      outline: none;
+    }
+    #controlgroup label {
+      font-size: 14px;
+      margin-left: 5px;
+      color: #FFFFFF; /* White for the label text */
+    }
+    /* Display the range value */
+    .range-value {
+      font-size: 16px;
+      color: #FFFFFF;
+      margin-top: -5px;
+      text-align: center;
+    }
+    /* Hover effect for select and radio inputs */
+    #controlgroup select:hover,
+    #controlgroup input[type="radio"]:hover,
+    #controlgroup input[type="checkbox"]:hover,
+    #controlgroup input[type="range"]:hover,
+    #controlgroup button:hover {
+      border-color: #777777; /* Lighter gray border on hover */
+      background-color: #6C5C5C; /* Slightly lighter gray-brown on hover */
+    }
+    /* Optional: Style for the radio buttons */
+    #controlgroup input[type="radio"] {
+      margin-top: 5px;
+      accent-color: #B0B5B2;  /* Soft gray for radio buttons */
+    }
+    /* Optional: Style for the checkboxes */
+    #controlgroup input[type="checkbox"] {
+      accent-color: #B0B5B2;  /* Soft gray for checkboxes */
+    }
+    /* Media query for smaller screens */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        flex: 1 1 100%;
+      }
+      .content {
+        flex: 1 1 100%;
+      }
+      #controlgroup {
+        width: 100%;
+      }
+      #selectmenu {
+        width: 100%;
+      }
+    }
+    /* Media query for extra small screens */
+    @media screen and (max-width: 480px) {
+      #controlgroup select,
+      #controlgroup input[type="radio"],
+      #controlgroup input[type="checkbox"],
+      #controlgroup input[type="range"],
+      #controlgroup button {
+        font-size: 12px;
+        padding: 8px;
+      }
+      #controlgroup label {
+        font-size: 12px;
+      }
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>   
+</head>
+<body>
+  
+  <div class="container">
+    <div class="sidebar">
+      <h3>Widgets</h3>
+      <a href="../pages/Accordion.html" data-target="#accordion">Accordion</a>
+      <a href="../pages/Autocomplete.html" data-target="#autocomplete">Autocomplete</a>
+      <a href="../pages/Button.html" data-target="#button">Button</a>
+      <a href="../pages/Checkboxradio.html" data-target="#checkboxradio">Checkboxradio</a>
+      <a href="../pages/Controlgroup.html" data-target="#controlgroup">Controlgroup</a>
+      <a href="../pages/Datepicker.html" data-target="#datepicker">Datepicker</a>
+      <a href="../pages/Dialog.html" data-target="#dialog">Dialog</a>
+      <a href="../pages/Menu.html" data-target="#menu">Menu</a>
+      <a href="../pages/Progressbar.html" data-target="#progressbar">Progressbar</a>
+      <a href="../pages/Selectmenu.html" data-target="#selectmenu">Selectmenu</a>
+      <a href="../pages/Slider.html" data-target="#slider">Slider</a>
+      <a href="../pages/Spinner.html" data-target="#spinner">Spinner</a>
+      <a href="../pages/Tabs.html" data-target="#tabs">Tabs</a>
+      <a href="../pages/Tooltip.html" data-target="#tooltip">Tooltip</a>
+      <!-- More links as needed -->
+    </div>
+  
+    <div class="content">
+      <h1>Solo Leveling Controlgroup</h1>
+
+      <div id="controlgroup">
+        <select id="selectmenu">
+          <option>Choose Character</option>
+          <option>Sung Jin-Woo</option>
+          <option>Cha Hae-In</option>
+          <option>Go Gun-Hee</option>
+          <option>Yoo Jinho</option>
+        </select>
+        
+        <input type="radio" id="radio1" name="radio-group">
+        <label for="radio1">Hunter</label>
+        
+        <input type="radio" id="radio2" name="radio-group">
+        <label for="radio2">Shadow Monarch</label>
+        
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1">Enable Shadow Ability</label>
+        
+        <input type="range" id="rangeSlider" min="0" max="100" value="50">
+        <label for="rangeSlider">Power Level: <span id="rangeValue">50</span>%</label>
+        
+        <button type="button" id="submitButton">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../js/shared.js"></script> <!-- Link to shared JS -->
+  <script>
+    $(function() {
+      $("#controlgroup").controlgroup();  // Initialize controlgroup
+      $("#selectmenu").selectmenu();  // Initialize selectmenu
+
+      // Update the range value dynamically
+      $('#rangeSlider').on('input', function() {
+        $('#rangeValue').text($(this).val());
+      });
+    });
+  </script>
+
+<footer class="footer">
+  College of Information and Computing Sciences © 2022
+</footer>
+
+</body>
+</html>
